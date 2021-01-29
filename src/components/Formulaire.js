@@ -9,6 +9,8 @@ import {
 } from "./ComposantsOperation";
 import DateDepense from "./DateDepense";
 import { download } from "../utils/QFXgen";
+import { selectDate } from "../redux/selectors";
+import { useSelector } from "react-redux";
 
 export default function Formulaire() {
   const {
@@ -20,10 +22,12 @@ export default function Formulaire() {
     setValue
   } = useForm();
 
-  const onSubmit = (data) => {
+  const dateOperation = useSelector(selectDate);
+
+  function onSubmit(data) {
     console.log(JSON.stringify(data));
-    download(data.Date.toString("dd/MM/yyyy"), data.Montant, data.Categorie, data.donnees);
-  };
+    download(dateOperation.content, data.Montant, data.Categorie, data.donnees);
+  }
 
   const { fields, append, remove } = useFieldArray({
     control,
@@ -53,21 +57,16 @@ export default function Formulaire() {
       <form onSubmit={handleSubmit(onSubmit)}>
         <Typography variant="h6">Dépense à découper</Typography>
 
-        <Controller
-          name={"Date"}
-          control={control}
-          defaultValue={Date.now()}
-          render={({ value }) => <DateDepense value={value} name={"Date"} />}
-        />
+        <DateDepense />
 
         <br style={{ fontSize: "0.8em" }} />
 
         <Grid {...props()} container>
           <Grid item xs={LargeurChamps}>
-            <TextFieldMontant name="Montant" register={register()} />
+            <TextFieldMontant name="Montant" register={register} />
           </Grid>
           <Grid item xs={LargeurChamps}>
-            <AutocompleteCategorie name="Categorie" register={register()} />
+            <AutocompleteCategorie name="Categorie" register={register} />
           </Grid>
         </Grid>
 
@@ -128,6 +127,7 @@ export default function Formulaire() {
           </Grid>
         ))}
         <Button type="submit">toto</Button>
+        <p>{JSON.stringify(dateOperation)}</p>
       </form>
     </div>
   );

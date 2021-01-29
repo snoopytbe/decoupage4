@@ -1,14 +1,17 @@
 import {EuroToNumber} from "./utils"
+import moment from "moment"
 
 export function qfxGen(dateDec, montant, categorie, decoupage) {
+  let myDate
+  myDate=moment(dateDec)
   let output = "!Type:Bank\n";
-  output += `D${dateDec}\n`;
+  output += `D${myDate.format("DD/MM/YYYY")}\n`;
   output += `T${EuroToNumber(montant)}\n`;
   output += `${categorie}\n`;
   output += "^\n";
   decoupage.forEach((item) => {
-    output += `D${dateDec}\n`;
-    output += `T${EuroToNumber(montant)}\n`;
+    output += `D${myDate.format("DD/MM/YYYY")}\n`;
+    output += `T${EuroToNumber(item.Montant)}\n`;
     output += `${item.Categorie}\n`;
     output += "^\n";
   });

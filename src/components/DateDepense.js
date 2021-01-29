@@ -10,11 +10,10 @@ import {
 import { updateDate } from "../redux/actions";
 import { selectDate } from "../redux/selectors";
 import { useSelector, useDispatch } from "react-redux";
-import { useController } from "react-hook-form";
 
-export default function DateDepense({ name, value, onChangeHandler }) {
+export default function DateDepense() {
   const dispatch = useDispatch();
-  const [dateChoisie, setDateChoisie] = useState(value);
+  const [dateChoisie, setDateChoisie] = useState(useSelector(selectDate));
 
   class LocalizedUtils extends DateFnsUtils {
     getDatePickerHeaderText(date) {
@@ -26,15 +25,13 @@ export default function DateDepense({ name, value, onChangeHandler }) {
     <div>
       <MuiPickersUtilsProvider utils={LocalizedUtils} locale={frLocale}>
         <KeyboardDatePicker
-          name={name}
           id="date-picker-dialog"
           label="Date de l'opération"
           format="dd/MM/yyyy"
-          autoOk
           value={dateChoisie}
           onChange={(date) => {
+            dispatch(updateDate(date));
             setDateChoisie(date);
-            value = date;
           }}
           KeyboardButtonProps={{
             "aria-label": "Changer la date"

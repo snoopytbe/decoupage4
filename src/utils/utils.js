@@ -6,5 +6,5 @@ export const NumberToEuro = (value) => {
 };
 
 export const EuroToNumber = (value) => {
-  parseFloat(value.replaceAll(" ",""))
+  return parseFloat(value.replaceAll(" ",""))
 };

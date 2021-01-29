@@ -17,6 +17,7 @@
     "@types/react": "latest",
     "@types/react-dom": "latest",
     "date-fns": "latest",
+    "moment": "2.29.1",
     "react": "latest",
     "react-dom": "latest",
     "react-hook-form": "latest",
