@@ -17,18 +17,18 @@
     "@types/react": "latest",
     "@types/react-dom": "latest",
     "date-fns": "latest",
-    "moment": "2.29.1",
+    "moment": "latest",
     "react": "latest",
     "react-dom": "latest",
     "react-hook-form": "latest",
     "react-number-format": "latest",
     "react-redux": "latest",
     "redux": "latest",
-    "styled-components": "5.2.1",
+    "styled-components": "latest",
     "typescript": "latest"
   },
   "devDependencies": {
-    "typescript": "3.8.3",
+    "typescript": "latest",
     "react-scripts": "latest"
   },
   "scripts": {
