@@ -1,6 +1,8 @@
 import React from "react";
 import { useForm, Controller, useFieldArray, trigger } from "react-hook-form";
 import { Grid, Icon, Typography, Button } from "@material-ui/core";
+import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
+import RemoveCircleOutlineIcon from "@material-ui/icons/RemoveCircleOutline";
 import {
   TextFieldMontant,
   AutocompleteCategorie,
@@ -106,28 +108,28 @@ export default function Formulaire() {
               spacing={3}
               xs={2}>
               <Grid item xs={3}>
-                <Icon
+                <AddCircleOutlineIcon
                   color="primary"
                   onClick={() => {
                     append({ Montant: 0, Categorie: "" });
-                  }}>
-                  add_circle
-                </Icon>
+                  }}
+                />
               </Grid>
               <Grid item xs={3}>
-                <Icon
+                <RemoveCircleOutlineIcon
                   color="secondary"
                   onClick={() => {
                     remove(index);
-                  }}>
-                  remove_circle
-                </Icon>
+                  }}
+                />
               </Grid>
             </Grid>
           </Grid>
         ))}
-        <Button type="submit">toto</Button>
-        <p>{JSON.stringify(dateOperation)}</p>
+        <br />
+        <Button variant="contained" color="primary" type="submit">
+          Télécharger
+        </Button>
       </form>
     </div>
   );
