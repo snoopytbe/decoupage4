@@ -2,13 +2,10 @@ import { createMuiTheme, makeStyles } from "@material-ui/core/styles";
 
 export const useStyles = makeStyles((theme) => ({
   root: {
-    padding: "0px 15px",
-    margin: "0px auto",
+    margin: "15px auto",
     maxWidth: "600px",
-    display: "block",
-    justifyContent: "center",
-    alignItems: "center",
-    background: theme.palette.background.paper
+    minWidth: "270px",
+    padding: "15px 15px"
   }
 }));
 
@@ -20,7 +17,7 @@ export const theme = createMuiTheme({
     },
     background: {
       paper: "#fff",
-      default: "#fafafa"
+      default: "#e6e7e8"
     },
     primary: {
       light: "#7986cb",
@@ -48,8 +45,8 @@ export const theme = createMuiTheme({
     }
   },
   typography: {
-    h4: { color: "#303f9f" },
-    h6: { color: "#7986cb", padding: "10px 0px 5px 0px" }
+    h4: { color: "#303f9f", textAlign: "center" },
+    h6: { color: "#7986cb", padding: "10px 0px 5px 0px" },
   },
   overrides: {
     MuiInputBase: {

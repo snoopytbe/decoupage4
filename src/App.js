@@ -2,7 +2,7 @@ import React from "react";
 import Formulaire from "./components/Formulaire";
 import "./styles/styles.css";
 import { ThemeProvider } from "@material-ui/core/styles";
-import { Typography } from "@material-ui/core";
+import { Typography, Paper } from "@material-ui/core";
 import { theme, useStyles } from "./styles/styles";
 
 export default function App() {
@@ -10,11 +10,11 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <div className={classes.root}>
+      <Paper elevation={6} className={classes.root}>
         <Typography variant="h4">Découpage de dépense</Typography>
         <br />
         <Formulaire />
-      </div>
+      </Paper>
     </ThemeProvider>
   );
 }
