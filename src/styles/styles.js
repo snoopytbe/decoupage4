@@ -2,7 +2,13 @@ import { createMuiTheme, makeStyles } from "@material-ui/core/styles";
 
 export const useStyles = makeStyles((theme) => ({
   root: {
-    padding: "0px 15px"
+    padding: "0px 15px",
+    margin: "0px auto",
+    maxWidth: "600px",
+    display: "block",
+    justifyContent: "center",
+    alignItems: "center",
+    background: {theme.palette.background},
   }
 }));
 
