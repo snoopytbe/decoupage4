@@ -8,7 +8,7 @@ export const useStyles = makeStyles((theme) => ({
     display: "block",
     justifyContent: "center",
     alignItems: "center",
-    background: {theme.palette.background},
+    background: theme.palette.background.paper
   }
 }));
 
